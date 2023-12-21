@@ -8,6 +8,7 @@ export const reset = css`
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     line-height: 1;
+    color: #1a1a1a;
   }
 
   code {

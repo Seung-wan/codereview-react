@@ -1,7 +1,7 @@
 import { Outlet } from 'react-router-dom';
 import styled from '@emotion/styled';
 
-import BottomNavigation from '@components/layout/bottom-navigation';
+import BottomNavigation from '@components/layout/bottom-navigation-layout/bottom-navigation';
 
 export default function BottomNavigationLayout() {
   return (
@@ -15,7 +15,7 @@ export default function BottomNavigationLayout() {
 }
 
 const OutletWrapper = styled.div`
-  padding-bottom: 80px;
+  padding: 8px 8px 80px;
 `;
 const S = {
   OutletWrapper,

@@ -1,30 +1,30 @@
 import { useCallback, useMemo } from 'react';
 import { useLocalStorage } from 'usehooks-ts';
 
-import type { Exhibition } from '~types/exhibition';
+import { STORAGE_KEYS } from '@constants/storage-keys';
 
-export function useExhibitionItem(id: number, exhibition: Exhibition) {
-  const [favoritesExhibitions, setFavoritesExhibitions] = useLocalStorage<Exhibition[]>(
-    'favoritesExhibitions',
+export function useExhibitionItem(id: number) {
+  const [favoritesExhibitionsId, setFavoritesExhibitionsId] = useLocalStorage<number[]>(
+    STORAGE_KEYS.FAVORITES_EXHIBITIONS_ID,
     [],
   );
 
   const isFavoriteExhibition = useMemo(
-    () => favoritesExhibitions.find((favoritesExhibition) => favoritesExhibition.id === id),
-    [favoritesExhibitions, id],
+    () => favoritesExhibitionsId.find((favoritesExhibitionId) => favoritesExhibitionId === id),
+    [favoritesExhibitionsId, id],
   );
 
   const handleClickStar = useCallback(() => {
     if (isFavoriteExhibition) {
-      const filteredFavorites = favoritesExhibitions.filter(
-        (favoritesExhibition) => favoritesExhibition.id !== id,
+      const filteredFavorites = favoritesExhibitionsId.filter(
+        (favoritesExhibitionId) => favoritesExhibitionId !== id,
       );
-      setFavoritesExhibitions(filteredFavorites);
+      setFavoritesExhibitionsId(filteredFavorites);
       return;
     }
 
-    setFavoritesExhibitions((prev) => [...prev, exhibition]);
-  }, [exhibition, favoritesExhibitions, id, isFavoriteExhibition, setFavoritesExhibitions]);
+    setFavoritesExhibitionsId((prev) => [...prev, id]);
+  }, [favoritesExhibitionsId, id, isFavoriteExhibition, setFavoritesExhibitionsId]);
 
   return {
     isFavoriteExhibition,

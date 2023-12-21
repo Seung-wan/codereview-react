@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 
 import { StarIcon } from '@assets/svgs';
 import { useExhibitionItem } from '@components/exhibition/exhibition-item/exhibition-item.hooks';
-import { ROUTE_PATHS } from '@constants/routes';
+import { ROUTE_PATHS } from '@constants/index';
 import type { Exhibition } from '~types/exhibition/index';
 import { commaize } from '@utils/number';
 import { theme } from '@styles/theme';
@@ -15,7 +15,7 @@ interface Props {
 export default function ExhibitionItem({ exhibition }: Props) {
   const { id, date, imageUrl, place, price, title } = exhibition;
 
-  const { isFavoriteExhibition, handleClickStar } = useExhibitionItem(id, exhibition);
+  const { isFavoriteExhibition, handleClickStar } = useExhibitionItem(id);
 
   return (
     <S.Container>

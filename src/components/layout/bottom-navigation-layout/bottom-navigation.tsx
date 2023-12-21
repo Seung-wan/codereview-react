@@ -2,7 +2,7 @@ import { NavLink } from 'react-router-dom';
 import styled from '@emotion/styled';
 
 import { StarIcon, TicketIcon } from '@assets/svgs';
-import { ROUTE_PATHS } from '@constants/routes';
+import { ROUTE_PATHS } from '@constants/index';
 import { theme } from '@src/styles';
 
 const NAVIGATION_ITEMS = [

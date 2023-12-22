@@ -68,6 +68,7 @@ export function useExhibitionDetail(id: number) {
 
     if (reservation === true) {
       handleClickReserve();
+      window.history.replaceState({}, document.title);
     }
 
     // eslint-disable-next-line react-hooks/exhaustive-deps

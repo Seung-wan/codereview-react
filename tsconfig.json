@@ -9,7 +9,9 @@
       "@hooks/*": ["hooks/*"],
       "@components/*": ["components/*"],
       "@constants/*": ["constants/*"],
-      "@types/*": ["types/*"],
+      "@providers/*": ["providers/*"],
+      "@styles/*": ["styles/*"],
+      "~types/*": ["types/*"],
       "@src/*": ["./*"]
     },
     "lib": ["dom", "dom.iterable", "esnext"],

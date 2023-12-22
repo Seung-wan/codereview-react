@@ -11,14 +11,12 @@ export default function NotFound() {
 
 const Container = styled.div`
   width: 100%;
+  height: calc(100vh - 88px);
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   gap: 4px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
 `;
 
 const Description = styled.div`

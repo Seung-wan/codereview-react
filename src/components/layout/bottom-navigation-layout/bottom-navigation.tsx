@@ -41,6 +41,7 @@ const Footer = styled.footer`
   position: fixed;
   bottom: 0;
   width: 100%;
+  max-width: 440px;
   height: 80px;
   border-top: 0.5px solid #f4f4f4;
   background-color: #fff;

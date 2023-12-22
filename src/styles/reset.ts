@@ -158,4 +158,11 @@ export const reset = css`
     text-decoration: none;
     color: black;
   }
+
+  #root {
+    position: relative;
+    max-width: 440px;
+    margin: 0 auto;
+    height: 100vh;
+  }
 `;

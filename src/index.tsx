@@ -4,7 +4,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { Global, ThemeProvider } from '@emotion/react';
 
-import { ModalProvider } from '@pages/exhibition-detail/provider';
+import { ModalProvider } from '@src/providers';
 import { reset, theme } from '@src/styles';
 
 import Router from './Router';

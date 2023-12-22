@@ -6,7 +6,7 @@ import { STORAGE_KEYS } from '@constants/storage-keys';
 import { ROUTE_PATHS } from '@constants/routes';
 import { ReservationModal, ReservationCompleteModal } from '@pages/exhibition-detail/components';
 import { useGetDetailExhibitionSuspenseQuery } from '@pages/exhibition-detail/hooks';
-import { useModalContext } from '@pages/exhibition-detail/provider';
+import { useModalContext } from '@src/providers';
 
 export function useExhibitionDetail(id: number) {
   const location = useLocation();

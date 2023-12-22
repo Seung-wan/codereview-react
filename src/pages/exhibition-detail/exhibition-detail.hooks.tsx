@@ -5,7 +5,7 @@ import { useLocalStorage } from 'usehooks-ts';
 import { STORAGE_KEYS } from '@constants/storage-keys';
 import { ROUTE_PATHS } from '@constants/routes';
 import { ReservationModal, ReservationCompleteModal } from '@pages/exhibition-detail/components';
-import { useGetFavoritesExhibitionsSuspenseQuery } from '@pages/exhibition-detail/hooks';
+import { useGetDetailExhibitionSuspenseQuery } from '@pages/exhibition-detail/hooks';
 import { useModalContext } from '@pages/exhibition-detail/provider';
 
 export function useExhibitionDetail(id: number) {
@@ -13,7 +13,7 @@ export function useExhibitionDetail(id: number) {
 
   const navigate = useNavigate();
 
-  const { data } = useGetFavoritesExhibitionsSuspenseQuery(Number(id));
+  const { data } = useGetDetailExhibitionSuspenseQuery(Number(id));
 
   const { openModal, closeModal } = useModalContext();
 

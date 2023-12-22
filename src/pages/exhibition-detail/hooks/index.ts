@@ -1,1 +1,1 @@
-export * from './use-get-favorites-exhibitions-suspense-query';
+export * from './use-get-detail-exhibition-suspense-query';

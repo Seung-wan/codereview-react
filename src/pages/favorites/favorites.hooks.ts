@@ -12,7 +12,7 @@ export function useFavorites() {
   );
 
   const { data: _favoritesExhibitions } = useSuspenseQuery({
-    queryKey: QUERY_KEYS.EXHIBITION.LIST(JSON.stringify(favoritesExhibitionsId)),
+    queryKey: QUERY_KEYS.EXHIBITION.LISTS(),
     queryFn: getApiExhibitionList,
   });
 

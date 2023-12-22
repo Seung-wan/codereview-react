@@ -15,38 +15,42 @@ interface Props {
 export default function ExhibitionItem({ exhibition }: Props) {
   const { id, date, imageUrl, place, price, title } = exhibition;
 
-  const { isFavoriteExhibition, handleClickStar } = useExhibitionItem(id);
+  const { isFavoriteExhibition, handleClickStar, handleClickReserve } = useExhibitionItem(id);
 
   return (
-    <S.Container>
-      <div>
-        <S.Image src={imageUrl} alt={title} />
-      </div>
-      <S.Right>
-        <S.Top>
-          <S.TitleWrapper>
-            <div>{title}</div>
-            <StarIcon
-              onClick={handleClickStar}
-              fill={isFavoriteExhibition ? theme.colors.primary : theme.colors.white}
-            />
-          </S.TitleWrapper>
-          <S.Place>{place}</S.Place>
-          <S.Price>{commaize(price)} 원</S.Price>
-        </S.Top>
-        <S.Bottom>
-          <S.DateWrapper>
-            <div>{date.started} ~ </div>
-            <div>{date.ended}</div>
-          </S.DateWrapper>
-          <Link to={ROUTE_PATHS.EXHIBITION_DETAIL(id)}>예매하기</Link>
-        </S.Bottom>
-      </S.Right>
-    </S.Container>
+    <li>
+      <S.Link to={ROUTE_PATHS.EXHIBITION_DETAIL(id)}>
+        <div>
+          <S.Image src={imageUrl} alt={title} />
+        </div>
+        <S.Right>
+          <S.Top>
+            <S.TitleWrapper>
+              <div>{title}</div>
+              <StarIcon
+                onClick={handleClickStar}
+                fill={isFavoriteExhibition ? theme.colors.primary : theme.colors.white}
+              />
+            </S.TitleWrapper>
+            <S.Place>{place}</S.Place>
+            <S.Price>{commaize(price)} 원</S.Price>
+          </S.Top>
+          <S.Bottom>
+            <S.DateWrapper>
+              <div>{date.started} ~ </div>
+              <div>{date.ended}</div>
+            </S.DateWrapper>
+            <S.Button onClick={handleClickReserve(id)} type="button">
+              예매하기
+            </S.Button>
+          </S.Bottom>
+        </S.Right>
+      </S.Link>
+    </li>
   );
 }
 
-const Container = styled.div`
+const _Link = styled(Link)`
   display: flex;
   height: 80px;
   gap: 10px;
@@ -92,18 +96,18 @@ const Bottom = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+`;
 
-  a {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 40px;
-    height: 16px;
-    border-radius: 4px;
-    background-color: #1a1a1a;
-    color: #fff;
-    font-size: 8px;
-  }
+const Button = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 16px;
+  border-radius: 4px;
+  background-color: #1a1a1a;
+  color: #fff;
+  font-size: 8px;
 `;
 
 const DateWrapper = styled.div`
@@ -113,7 +117,7 @@ const DateWrapper = styled.div`
 `;
 
 const S = {
-  Container,
+  Link: _Link,
   Right,
   Top,
   TitleWrapper,
@@ -121,5 +125,6 @@ const S = {
   Price,
   Image,
   Bottom,
+  Button,
   DateWrapper,
 };

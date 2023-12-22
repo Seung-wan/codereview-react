@@ -16,8 +16,8 @@ const Container = styled.div`
 `;
 
 const Wrapper = styled.div`
-  width: 16px;
-  height: 16px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   border: 6px solid #fff;
   border-top-color: ${(props) => props.theme.colors.primary};
